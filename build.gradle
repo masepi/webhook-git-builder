@@ -1,0 +1,25 @@
+group 'ru.masepi'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+mainClassName="ru.masepi.bitbucket.WebHookListener"
+
+jar {
+    manifest.attributes 'Main-Class': 'ru.masepi.bitbucket.WebHookListener'
+    duplicatesStrategy 'exclude'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'net.sf.jopt-simple', name: 'jopt-simple', version: '5.0.2'
+    compile 'org.eclipse.jgit:org.eclipse.jgit:3.5.0.201409260305-r'
+    compile 'com.sparkjava:spark-core:2.5'
+}
