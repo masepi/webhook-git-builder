@@ -6,10 +6,10 @@ apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
-mainClassName="ru.masepi.bitbucket.WebHookListener"
+mainClassName="ru.masepi.webhookgitbuilder.StartPoint"
 
 jar {
-    manifest.attributes 'Main-Class': 'ru.masepi.bitbucket.WebHookListener'
+    manifest.attributes 'Main-Class': 'ru.masepi.webhookgitbuilder.StartPoint'
     duplicatesStrategy 'exclude'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
